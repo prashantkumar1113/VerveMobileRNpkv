@@ -1,5 +1,8 @@
 import {StatusBar} from "expo-status-bar";
 import {StyleSheet, Text, View, SafeAreaView, Image} from "react-native";
+import colors from "./src/theme/colors";
+import VerveButton from "./src/components/VerveButton";
+import VerveTextField from "./src/components/VerveTextField";
 
 export default function App() {
     return (
@@ -15,6 +18,10 @@ export default function App() {
                 style={{width: 100, height: 100}}
             ></Image>
             <Text>Verveware</Text>
+            <VerveTextField placeholder="Company Name" />
+            <VerveTextField placeholder="Email" />
+            <VerveTextField placeholder="Password" />
+            <VerveButton>Login</VerveButton>
             <StatusBar style="auto" />
         </SafeAreaView>
     );
@@ -23,7 +30,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FF5732",
+        backgroundColor: colors.primary,
         alignItems: "center",
         // justifyContent: "center",
     },
