@@ -1,22 +1,28 @@
 import {StyleSheet, View, Text, TextInput} from "react-native";
 import colors from "../theme/colors";
-export default function VerveTextField({placeholder}) {
+export default function VerveTextField({
+    placeholder,
+    autoCapitalize = "none",
+    autoCorrect = true,
+    password = false,
+}) {
     return (
         <TextInput
             style={styles.textInput}
-            autoCapitalize="none"
-            autoCorrect={false}
+            autoCapitalize={autoCapitalize}
+            autoCorrect={autoCorrect}
             placeholder={placeholder}
+            secureTextEntry={password}
         />
     );
 }
 const styles = StyleSheet.create({
     textInput: {
         // height: 50,
-        marginVertical: 8,
+        marginVertical: 10,
         minWidth: 300,
-        padding: 16,
-        fontSize: 16,
+        padding: 20,
+        fontSize: 20,
         // color: colors.white,
         backgroundColor: colors.white,
         // borderBottomColor: colors.secondary,

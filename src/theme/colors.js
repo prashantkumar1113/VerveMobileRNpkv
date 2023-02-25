@@ -15,7 +15,7 @@ const colors = {
     canceled: "#FA8072", //red
     exception: "#F7DC6F", //yellow
     inProgress: "#87cefa", //blue
-    open: "#B6B3D1", //purples
+    open: "#B6B3D1", //purple
 };
 
 export default colors;

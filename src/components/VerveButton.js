@@ -1,23 +1,42 @@
-import {StyleSheet, View, Text} from "react-native";
+import {StyleSheet, View, Text, Pressable} from "react-native";
 import colors from "../theme/colors";
-export default function VerveButton({children, variant, size}) {
-    if (!variant) {
-        variant = "secondary";
-    }
+export default function VerveButton({children, variant = "secondary", size}) {
     return (
-        <View style={[styles.button, {backgroundColor: colors[variant]}]}>
-            <Text style={styles.text}>{children}</Text>
+        <View style={styles.buttonOuterContainer}>
+            <Pressable
+                style={({pressed}) =>
+                    pressed
+                        ? [
+                              styles.buttonInnerContainer,
+                              {backgroundColor: colors[variant]},
+                              styles.pressed,
+                          ]
+                        : [
+                              styles.buttonInnerContainer,
+                              {backgroundColor: colors[variant]},
+                          ]
+                }
+                onPress={() => {
+                    console.log(`${children} button was pressed!`);
+                }}
+                // android_ripple={{color: `${colors.primary}`}}
+            >
+                <Text style={styles.text}>{children}</Text>
+            </Pressable>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    button: {
+    buttonOuterContainer: {
         // backgroundColor: colors.secondary,
-        marginTop: 8,
-        padding: 16,
+        marginVertical: 8,
         borderRadius: 16,
-        // Shadow
+        minWidth: 160,
+        overflow: "hidden",
+    },
+    buttonInnerContainer: {
+        padding: 20, // Shadow
         elevation: 4, // android only
         // for iOS
         shadowColor: colors.black,
@@ -30,5 +49,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 20,
         fontWeight: "bold",
+    },
+    pressed: {
+        opacity: 0.75,
     },
 });
