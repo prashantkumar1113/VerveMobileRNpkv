@@ -1,10 +1,10 @@
-import {StyleSheet, Image, Text, View} from "react-native";
+import {SafeAreaView, Image, View} from "react-native";
 import VerveButton from "../components/VerveButton";
-import VerveTextField from "../components/VerveTextField";
+import styles from "../theme/styles";
 
-export default function LoginScreen(props) {
+export default function LoginScreen({navigation}) {
     return (
-        <>
+        <SafeAreaView style={styles.splashContainer}>
             <View style={styles.container}>
                 <Image
                     source={require("../assets/verveware-horizontal-2line-white.png")}
@@ -23,16 +23,21 @@ export default function LoginScreen(props) {
                 ></Image>
             </View>
             <View style={styles.container}>
-                <VerveButton>Sign Up</VerveButton>
-                <VerveButton>Sign In</VerveButton>
+                <VerveButton
+                    onPress={() => {
+                        navigation.navigate("Signup");
+                    }}
+                >
+                    Sign Up
+                </VerveButton>
+                <VerveButton
+                    onPress={() => {
+                        navigation.navigate("Login");
+                    }}
+                >
+                    Sign In
+                </VerveButton>
             </View>
-        </>
+        </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-    },
-});

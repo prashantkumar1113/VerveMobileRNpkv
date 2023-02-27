@@ -1,6 +1,10 @@
 import {StyleSheet, View, Text, Pressable} from "react-native";
 import colors from "../theme/colors";
-export default function VerveButton({children, variant = "secondary", size}) {
+export default function VerveButton({
+    children,
+    variant = "secondary",
+    onPress,
+}) {
     return (
         <View style={styles.buttonOuterContainer}>
             <Pressable
@@ -16,9 +20,7 @@ export default function VerveButton({children, variant = "secondary", size}) {
                               {backgroundColor: colors[variant]},
                           ]
                 }
-                onPress={() => {
-                    console.log(`${children} button was pressed!`);
-                }}
+                onPress={onPress}
                 // android_ripple={{color: `${colors.primary}`}}
             >
                 <Text style={styles.text}>{children}</Text>
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
         overflow: "hidden",
     },
     buttonInnerContainer: {
-        padding: 20, // Shadow
+        padding: 16, // Shadow
         elevation: 4, // android only
         // for iOS
         shadowColor: colors.black,

@@ -5,6 +5,7 @@ export default function VerveTextField({
     autoCapitalize = "none",
     autoCorrect = true,
     password = false,
+    ...props
 }) {
     return (
         <TextInput
@@ -13,6 +14,7 @@ export default function VerveTextField({
             autoCorrect={autoCorrect}
             placeholder={placeholder}
             secureTextEntry={password}
+            {...props}
         />
     );
 }
@@ -21,8 +23,8 @@ const styles = StyleSheet.create({
         // height: 50,
         marginVertical: 10,
         minWidth: 300,
-        padding: 20,
-        fontSize: 20,
+        padding: 16,
+        fontSize: 14,
         // color: colors.white,
         backgroundColor: colors.white,
         // borderBottomColor: colors.secondary,
