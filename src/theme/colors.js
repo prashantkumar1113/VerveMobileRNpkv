@@ -18,6 +18,17 @@ const colors = {
     exception: "#F7DC6F", //yellow
     inProgress: "#87cefa", //blue
     open: "#B6B3D1", //purple
+    //webiots
+    block: "#FF5733",
+    date: "#386EB6",
+    address: "#707070",
+    splash: "#26316e",
+    gray: "#cccccc",
+    signature: "#EEEEEE",
+    inputBorder: "#F3F4F8",
+    signatureBorder: "#000033",
+    shadow: "#171717",
+    //social media
     facebook: {
         main: "#3b5998",
         dark: "#344e86",

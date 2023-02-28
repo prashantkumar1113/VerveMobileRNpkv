@@ -1,10 +1,20 @@
 import {StyleSheet, View, Text, Pressable} from "react-native";
+import {useFonts} from "expo-font";
 import colors from "../theme/colors";
+// import appFonts from "../theme/appFonts";
+
 export default function VerveButton({
     children,
     variant = "secondary",
     onPress,
 }) {
+    const [loaded] = useFonts({
+        "Rubik-Bold": require("../assets/fonts/Rubik-Bold.ttf"),
+    });
+
+    if (!loaded) {
+        return null;
+    }
     return (
         <View style={styles.buttonOuterContainer}>
             <Pressable
@@ -50,7 +60,7 @@ const styles = StyleSheet.create({
         color: colors.white,
         textAlign: "center",
         fontSize: 20,
-        fontWeight: "bold",
+        fontFamily: "Rubik-Bold",
     },
     pressed: {
         opacity: 0.75,

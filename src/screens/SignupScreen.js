@@ -1,3 +1,4 @@
+import {useEffect, useState} from "react";
 import {
     SafeAreaView,
     Image,
@@ -8,8 +9,31 @@ import {
 import VerveButton from "../components/VerveButton";
 import VerveTextField from "../components/VerveTextField";
 import styles from "../theme/styles";
+import {BASE_URL, API_CHECKCAREGIVER} from "../theme/appConstant";
 
 export default function SignupScreen({navigation}) {
+    const [isCaregiver, setIsCaregiver] = useState(false);
+
+    useEffect(() => {
+        const fetchIsCaregiver = async () => {
+            let myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            // myHeaders.append("Authorization", authToken);
+            const requestOptions = {
+                method: "POST",
+                headers: myHeaders,
+                body: JSON.stringify({email: "pj@gmail.com"}),
+            };
+            const response = await fetch(
+                `${BASE_URL}/${API_CHECKCAREGIVER}`,
+                requestOptions
+            );
+            const data = await response.json();
+            console.debug("DATA: ", data);
+            setIsCaregiver(data.data);
+        };
+        fetchIsCaregiver();
+    }, []);
     return (
         <SafeAreaView style={styles.splashContainer}>
             <ScrollView>
