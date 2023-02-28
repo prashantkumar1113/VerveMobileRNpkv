@@ -41,7 +41,7 @@ export default function LoginScreen({navigation}) {
                         <VerveTextField placeholder="Password" password />
                         <VerveButton
                             onPress={() => {
-                                navigation.navigate("Dashboard");
+                                navigation.navigate("SchedulesDashboard");
                             }}
                         >
                             Login

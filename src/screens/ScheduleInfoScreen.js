@@ -1,9 +1,11 @@
-import {Text, View} from "react-native";
+import {Text, View, ScrollView} from "react-native";
+import styles from "../theme/styles";
 
-export default function SchedulesInfoScreen(props) {
+export default function SchedulesInfoScreen({route}) {
+    const {date} = route.params;
     return (
-        <View>
-            <Text>SchedulesInfoScreen</Text>
-        </View>
+        <ScrollView style={styles.schedulesContainer}>
+            <Text>SchedulesInfoScreen {date}</Text>
+        </ScrollView>
     );
 }

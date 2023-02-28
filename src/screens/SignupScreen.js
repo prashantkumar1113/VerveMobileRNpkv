@@ -44,7 +44,7 @@ export default function SignupScreen({navigation}) {
                         <VerveTextField placeholder="Employee Email" />
                         <VerveButton
                             onPress={() => {
-                                navigation.navigate("Dashboard");
+                                navigation.navigate("SchedulesDashboard");
                             }}
                         >
                             Sign Up
