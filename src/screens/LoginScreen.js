@@ -9,7 +9,7 @@ import VerveButton from "../components/VerveButton";
 import VerveTextField from "../components/VerveTextField";
 import styles from "../theme/styles";
 
-export default function LoginScreen(props) {
+export default function LoginScreen({navigation}) {
     return (
         <SafeAreaView style={styles.splashContainer}>
             <ScrollView>
@@ -39,20 +39,16 @@ export default function LoginScreen(props) {
                         />
                         <VerveTextField placeholder="Email" />
                         <VerveTextField placeholder="Password" password />
-                        <VerveButton>Login</VerveButton>
+                        <VerveButton
+                            onPress={() => {
+                                navigation.navigate("Dashboard");
+                            }}
+                        >
+                            Login
+                        </VerveButton>
                     </View>
                 </KeyboardAvoidingView>
             </ScrollView>
         </SafeAreaView>
     );
 }
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//     },
-//     containerCenter: {
-//         flex: 1,
-//         alignItems: "center",
-//         justifyContent: "center",
-//     },
-// });

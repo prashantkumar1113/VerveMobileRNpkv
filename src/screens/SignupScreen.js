@@ -9,7 +9,7 @@ import VerveButton from "../components/VerveButton";
 import VerveTextField from "../components/VerveTextField";
 import styles from "../theme/styles";
 
-export default function SignupScreen(props) {
+export default function SignupScreen({navigation}) {
     return (
         <SafeAreaView style={styles.splashContainer}>
             <ScrollView>
@@ -42,7 +42,13 @@ export default function SignupScreen(props) {
                             keyboardType="numeric"
                         />
                         <VerveTextField placeholder="Employee Email" />
-                        <VerveButton>Sign Up</VerveButton>
+                        <VerveButton
+                            onPress={() => {
+                                navigation.navigate("Dashboard");
+                            }}
+                        >
+                            Sign Up
+                        </VerveButton>
                     </View>
                 </KeyboardAvoidingView>
             </ScrollView>

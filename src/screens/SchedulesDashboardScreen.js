@@ -1,9 +1,15 @@
-import {Text, View} from "react-native";
+import {Text, View, Pressable} from "react-native";
 
-export default function SchedulesDashboardScreen(props) {
+export default function SchedulesDashboardScreen({navigation}) {
     return (
-        <View>
-            <Text>SchedulesDashboardScreen</Text>
-        </View>
+        <Pressable
+            onPress={() => {
+                navigation.navigate("ScheduleInfo");
+            }}
+        >
+            <View>
+                <Text>SchedulesDashboardScreen</Text>
+            </View>
+        </Pressable>
     );
 }
