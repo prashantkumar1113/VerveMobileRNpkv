@@ -65,7 +65,10 @@ export default function SignupScreen({navigation}) {
                             placeholder="Employee ID"
                             keyboardType="numeric"
                         />
-                        <VerveTextField placeholder="Employee Email" />
+                        <VerveTextField
+                            placeholder="Employee Email"
+                            keyboardType="email-address"
+                        />
                         <VerveButton
                             onPress={() => {
                                 navigation.navigate("SchedulesDashboard");

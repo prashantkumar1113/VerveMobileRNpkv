@@ -14,12 +14,12 @@ import ScheduleInfoScreen from "./src/screens/ScheduleInfoScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+const BottomTab = createBottomTabNavigator();
 const ScheduleStack = createNativeStackNavigator();
 
-function TabNavigator() {
+function BottomTabNavigator() {
     return (
-        <Tab.Navigator
+        <BottomTab.Navigator
             screenOptions={{
                 headerStyle: {backgroundColor: colors.secondary},
                 headerTintColor: colors.white,
@@ -29,7 +29,7 @@ function TabNavigator() {
                 // tabBarActiveBackgroundColor: colors.secondary,
             }}
         >
-            <Tab.Screen
+            <BottomTab.Screen
                 name="Dashboard"
                 component={SchedulesStackNavigator}
                 options={{
@@ -43,7 +43,7 @@ function TabNavigator() {
                     ),
                 }}
             />
-            <Tab.Screen
+            <BottomTab.Screen
                 name="Profile"
                 component={ProfileScreen}
                 options={{
@@ -56,7 +56,7 @@ function TabNavigator() {
                     ),
                 }}
             />
-            {/* <Tab.Screen // for hiding a tab bar button
+            {/* <BottomTab.Screen // for hiding a tab bar button
                 name="ScheduleInfo"
                 component={ScheduleInfoScreen}
                 options={{
@@ -64,7 +64,7 @@ function TabNavigator() {
                     tabBarVisible: false,
                 }}
             /> */}
-        </Tab.Navigator>
+        </BottomTab.Navigator>
     );
 }
 
@@ -89,14 +89,13 @@ function SchedulesStackNavigator() {
                 options={({route, navigation}) => {
                     return {
                         title: route.params.date, // Passing the date to the screen title
+                        // presentation: "modal",
                     };
                 }}
             />
         </ScheduleStack.Navigator>
     );
 }
-
-// console.debug(REACT_APP_BACKEND_URL);
 
 export default function App() {
     return (
@@ -120,7 +119,7 @@ export default function App() {
                     <Stack.Screen name="Signup" component={SignupScreen} />
                     <Stack.Screen
                         name="SchedulesDashboard"
-                        component={TabNavigator}
+                        component={BottomTabNavigator}
                         options={{headerShown: false}}
                     />
                 </Stack.Navigator>

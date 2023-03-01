@@ -3,7 +3,7 @@ import colors from "../theme/colors";
 export default function VerveTextField({
     placeholder,
     autoCapitalize = "none",
-    autoCorrect = true,
+    autoCorrect = false,
     password = false,
     ...props
 }) {

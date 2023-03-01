@@ -2,6 +2,7 @@ import {Dimensions, PixelRatio, Platform} from "react-native";
 
 export const BASE_URL =
     "https://kz9hu6e5pl.execute-api.us-east-2.amazonaws.com";
+
 export const API_CHECKCAREGIVER = "user/check-caregiver";
 export const API_DASHBOARDVIEW = "mobile/caregiver/dashboard";
 
